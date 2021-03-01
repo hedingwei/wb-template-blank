@@ -1,0 +1,47 @@
+server:
+  port: 9980
+  servlet:
+    context-path: /
+  tomcat:
+    additional-tld-skip-patterns: derbyLocale_*.jar,jaxb-api.jar,jsr173_1.0_api.jar,jaxb1-impl.jar,activation.jar,xml-apis.jar,xercesImpl.jar,serializer.jar
+    basedir: ./base
+  compression:
+    enabled: true
+    mime-types: application/javascript, text/css,application/json, text/css, text/html
+    min-response-size: 2KB
+
+
+spring:
+  application:
+    name: website-box-admin
+
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+    cache:
+      period: 0
+    chain:
+      cache: true
+      compressed: true
+      enabled: true
+      html-application-cache: true
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com.yunxin.website: debug
