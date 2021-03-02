@@ -20,6 +20,17 @@ spring:
       prefix: /WEB-INF/views/
       suffix: .jsp
 
+  thymeleaf:
+    prefix: /static/
+    check-template-location: true
+    suffix: .html
+    encoding: utf-8
+    mode: HTML5
+    cache: false
+    servlet:
+      content-type: text/html
+    view-names: /*.html
+
   resources:
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
     cache:
@@ -45,3 +56,12 @@ logging:
   config: classpath:logback-spring.xml
   level:
     com.yunxin.website: debug
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"] #开启全部端点相关代码
+  server:
+    port: 9981
