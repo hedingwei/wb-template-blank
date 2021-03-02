@@ -2,6 +2,7 @@ package com.yunxin.websitebox.website;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.ApplicationPidFileWriter;
 import springfox.documentation.oas.annotations.EnableOpenApi;
 
 
@@ -11,7 +12,10 @@ public class WebsiteApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(WebsiteApplication.class, args);
+		SpringApplication sa = new SpringApplication(WebsiteApplication.class);
+		sa.addListeners(new ApplicationPidFileWriter());
+		sa.run(args);
+
 	}
 
 

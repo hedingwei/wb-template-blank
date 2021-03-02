@@ -12,6 +12,9 @@ server:
 
 
 spring:
+  pid:
+    file: ./app.pid
+    fail-on-write-error: true
   application:
     name: website-box-admin
 
